@@ -1,13 +1,34 @@
+import firstimg from "./project1.png"
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Navbar from './Navbar';
+import Hero from './Hero';
+import Card from './Card';
+import data from "./data";
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const cards = data.map(item=>{
+  return (
+    <Card
+        item={item}
+        key = {item.id}
+    />
+  )
+})
+
 root.render(
   <React.StrictMode>
-    <App />
+    <div>
+    <Navbar/>
+    <Hero/>
+    <section className="classlist">
+      {cards}
+    </section>
+    
+    </div>
   </React.StrictMode>
 );
 
